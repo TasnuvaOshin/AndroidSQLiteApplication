@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#DDF8F8F8"
+    tools:context=".Quiz.QuizHomeFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="6dp"
+        android:id="@+id/banner_section"
+
+        >
+        <ImageView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/orcef"
+            android:id="@+id/iv_banner_adstop"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="22dp"
+
+
+        >
+        <LinearLayout
+            android:background="@drawable/a"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer the Following Question"
+                android:textStyle="bold"
+                android:textSize="16sp"
+
+                android:textAlignment="center"
+                android:padding="6dp"
+
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+
+                android:id="@+id/quiz_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/match_quiz_question_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif"
+                    android:padding="6dp"
+                    android:text="Who will win today?"
+                    android:textAlignment="center"
+                    android:textColor="#ff0000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/match_quiz_question_one"
+                    android:gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true">
+
+                        <RadioButton
+                            android:id="@+id/rb_qus_one_op_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="Option One"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:textAlignment="center"
+                            android:padding="6dp"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:id="@+id/rb_qus_one_op_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Option Two" />
+
+
+                    </RadioGroup>
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#B9000000"
+android:id="@+id/button"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="245dp"
+                android:layout_marginEnd="245dp"
+                android:layout_marginBottom="45dp"
+                android:text="Submit"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="6dp"
+   android:layout_alignParentBottom="true"
+
+        >
+        <ImageView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/orcef"
+
+            />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

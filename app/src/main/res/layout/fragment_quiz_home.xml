@@ -73,7 +73,7 @@
 
 
                 <TextView
-                    android:id="@+id/match_quiz_question_one"
+                    android:id="@+id/qus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -92,7 +92,7 @@
                     android:id="@+id/options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/match_quiz_question_one"
+                    android:layout_below="@id/qus"
                     android:gravity="center">
 
                     <RadioGroup
@@ -103,7 +103,7 @@
                         android:layout_centerHorizontal="true">
 
                         <RadioButton
-                            android:id="@+id/rb_qus_one_op_one"
+                            android:id="@+id/op1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="6dp"
@@ -118,11 +118,31 @@
                             android:padding="6dp"
                             android:textStyle="bold"
                             android:textSize="16sp"
-                            android:id="@+id/rb_qus_one_op_two"
+                            android:id="@+id/op2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Option Two" />
 
+                        <RadioButton
+                            android:id="@+id/op3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="Option One"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:textAlignment="center"
+                            android:padding="6dp"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:id="@+id/op4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Option Two" />
 
                     </RadioGroup>
 

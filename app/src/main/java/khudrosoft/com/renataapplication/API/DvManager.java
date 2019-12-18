@@ -18,6 +18,7 @@ public class DvManager extends SQLiteOpenHelper {
     private static final String col_five="Thana";
     private static final String col_six="Gift";
     private static final String table_name="information";
+    private static final String table_nameone="phone";
     private static final String table_query="SELECT * FROM "+table_name;
 
     public DvManager(@Nullable Context context) {
@@ -62,10 +63,37 @@ sqLiteDatabase.execSQL(query);
     }
 
 
+    public  String addPhone(String name,String phoneno){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+//        String query ="create table "+table_nameone+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text)";
+//       db.execSQL(query);
+       ContentValues contentValues = new ContentValues();
+        contentValues.put(col_two,name);
+        contentValues.put(col_three,phoneno);
+
+
+        long res = db.insert(table_nameone,null,contentValues);
+
+        if(res == -1){
+            return  "failed";
+        }else {
+            return "Successfully Inserted";
+        }
+    }
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery(table_query,null);
+
+        return cursor;
+    }
+
+    public Cursor getAllDataPhone(String num){
+
+        String Query = "SELECT * FROM "+table_nameone+" WHERE "+col_three+"="+num;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(Query,null);
 
         return cursor;
     }

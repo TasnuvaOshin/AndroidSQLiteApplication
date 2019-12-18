@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,7 +42,7 @@ public class SplashFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_splash, container, false);
         webView = view.findViewById(R.id.webview);
         mediaController = new MediaController(getActivity());
-        webView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.promo);
+        webView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.video);
         //   mediaController.show();
 
         mediaController.setAnchorView(webView);
@@ -51,12 +50,14 @@ public class SplashFragment extends Fragment {
         mediaController.requestFocus();
 
         webView.setMediaController(mediaController);
+       
         webView.start();
 
         webView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);
+
             }
         });
 
@@ -80,7 +81,7 @@ public class SplashFragment extends Fragment {
 
 
         });
-        Log.d("play", String.valueOf(play));
+
         return view;
     }
 

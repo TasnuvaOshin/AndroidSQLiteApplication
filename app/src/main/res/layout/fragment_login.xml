@@ -18,13 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
         app:cardCornerRadius="22dp"
 
         >
 
         <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/auth_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#D0F1F1F1"
@@ -55,6 +57,7 @@
             <EditText
                 android:id="@+id/phoneno"
                 android:maxLength="11"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -69,6 +72,7 @@
             <EditText
                 android:maxLength="30"
                 android:id="@+id/name"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -136,10 +140,11 @@
 
         </LinearLayout>
 
+
     </androidx.cardview.widget.CardView>
 
-
 </RelativeLayout>
+
 
 
 

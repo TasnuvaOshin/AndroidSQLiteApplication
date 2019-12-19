@@ -2,6 +2,7 @@ package khudrosoft.com.renataapplication.Home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import java.util.TimerTask;
 import androidx.fragment.app.FragmentTransaction;
 import khudrosoft.com.renataapplication.Login.LoginFragment;
 import khudrosoft.com.renataapplication.R;
+import khudrosoft.com.renataapplication.SimulateFragment;
 
 
 public class SplashFragment extends Fragment {
@@ -42,20 +44,21 @@ public class SplashFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_splash, container, false);
         webView = view.findViewById(R.id.webview);
         mediaController = new MediaController(getActivity());
-        webView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.video);
+        webView.setVideoPath("android.resource://" + getActivity().getPackageName() + "/" + R.raw.lowapi);
         //   mediaController.show();
 
         mediaController.setAnchorView(webView);
         mediaController.setMediaPlayer(webView);
         mediaController.requestFocus();
 
-        webView.setMediaController(mediaController);
-       
+       // webView.setMediaController(mediaController);
+        webView.setBackgroundColor(Color.TRANSPARENT);
         webView.start();
-
+        webView.setZOrderOnTop(false);
         webView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+                //webView.start();
                 mp.setLooping(true);
 
             }
@@ -74,7 +77,7 @@ public class SplashFragment extends Fragment {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 // Toast.makeText(getActivity(), "I Clicked", Toast.LENGTH_SHORT).show();
-                SetFrame(new LoginFragment());
+                SetFrame(new SimulateFragment());
 
                 return true;
             }

@@ -59,6 +59,23 @@ public class AddQuizData {
         //22
         ArrayList.add(new QuizData("As per ESC guidelines of Angina Treatment ……………………… should be administered even SBP is just above 120mmHg.","Bisoren","Losartan ","Olmesartan","None","Bisoren"));
 
+        //23
+        ArrayList.add(new QuizData("Which one is the safest oral-antidiabetic for diabetic patients with CKD?","Sitagliptin","Linagliptin","Saxagliptin","Vildagliptin","Linagliptin"));
+//24
+        ArrayList.add(new QuizData("Which one is the Linagliptin brand of Renata?","Tradjenta","Linalol","Glinta","Gliptin","Glinta"));
+//25
+        ArrayList.add(new QuizData("Which one is the most potent Statin?","Simvastatin","Fluvastatin","Pitavastatin ","Rosuvastatin","Rosuvastatin"));
+//26
+        ArrayList.add(new QuizData(" Which one is the Rosuvastatin brand of Renata?","Rolip","Lorip","Crestor ","Fenovas","Rolip"));
+//27
+        ArrayList.add(new QuizData("Which preparation is best in terms of TG (Triglyceride) reduction?","Atorvastatin","Fenofibrate","Rosuvastatin ","None of them","Fenofibrate"));
+//28
+        ArrayList.add(new QuizData("Which one is the Fenofibrate brand of Renata?","Fenobate","Tenobate","Fibrate ","None of them","Fenobate"));
+//29
+        ArrayList.add(new QuizData(" Which one is the first line treatment option for type II diabetes mellitus?","Linagliptin","Gliclazide","Empagliflozin ","Metformin","Metformin"));
+//30
+        ArrayList.add(new QuizData("Which one is the extended release Metformin preparation of Renata?","Bigmet 850","Bigmet","Bigmet 500 XR","Bigmet 500","Bigmet 500 XR"));
+
     }
 
 }

@@ -10,16 +10,16 @@ import androidx.annotation.Nullable;
 
 public class DvManager extends SQLiteOpenHelper {
 
-    private static final String db_name="InfoDb.db";
-    private static final String col_one="Id";
-    private static final String col_two="Name";
-    private static final String col_three="Phoneno";
-    private static final String col_four="District";
-    private static final String col_five="Thana";
-    private static final String col_six="Gift";
-    private static final String table_name="information";
-    private static final String table_nameone="phone";
-    private static final String table_query="SELECT * FROM "+table_name;
+    private static final String db_name = "InfoDb.db";
+    private static final String col_one = "Id";
+    private static final String col_two = "Name";
+    private static final String col_three = "Phoneno";
+    private static final String col_four = "District";
+    private static final String col_five = "Thana";
+    private static final String col_six = "Gift";
+    private static final String table_name = "information";
+    private static final String table_nameone = "phone";
+    private static final String table_query = "SELECT * FROM " + table_name;
 
     public DvManager(@Nullable Context context) {
         super(context, db_name, null, 1);
@@ -28,73 +28,92 @@ public class DvManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-String query ="create table "+table_name+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text,"+col_four+" text,"+col_five+" text,"+col_six+" text)";
-sqLiteDatabase.execSQL(query);
+        String query = "create table if not exists " + table_name + "(" + col_one + " integer primary key autoincrement," + col_two + " text," + col_three + " text," + col_four + " text," + col_five + " text," + col_six + " text)";
+        sqLiteDatabase.execSQL(query);
+        String query2 ="create table if not exists "+table_nameone+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text)";
+        sqLiteDatabase.execSQL(query2);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+table_name);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + table_name);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + table_nameone);
         onCreate(sqLiteDatabase);
+
     }
 
 
-    public  String addRecord(String name,String phoneno,String district,String thana,String gift){
+    public String addRecord(String name, String phoneno, String district, String thana, String gift) {
 
         SQLiteDatabase db = this.getWritableDatabase();
-//        String query ="create table "+table_name+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text,"+col_four+" text,"+col_five+" text,"+col_six+" text)";
-//        db.execSQL(query);
+        String query ="create table if not exists "+table_name+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text,"+col_four+" text,"+col_five+" text,"+col_six+" text)";
+        db.execSQL(query);
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col_two,name);
-        contentValues.put(col_three,phoneno);
-        contentValues.put(col_four,district);
-        contentValues.put(col_five,thana);
-        contentValues.put(col_six,gift);
+        contentValues.put(col_two, name);
+        contentValues.put(col_three, phoneno);
+        contentValues.put(col_four, district);
+        contentValues.put(col_five, thana);
+        contentValues.put(col_six, gift);
 
-  long res = db.insert(table_name,null,contentValues);
+        long res = db.insert(table_name, null, contentValues);
 
-    if(res == -1){
-        return  "failed";
-    }else {
-        return "Successfully Inserted";
-    }
-    }
-
-
-    public  String addPhone(String name,String phoneno){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-//        String query ="create table "+table_nameone+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text)";
-//       db.execSQL(query);
-       ContentValues contentValues = new ContentValues();
-        contentValues.put(col_two,name);
-        contentValues.put(col_three,phoneno);
-
-
-        long res = db.insert(table_nameone,null,contentValues);
-
-        if(res == -1){
-            return  "failed";
-        }else {
+        if (res == -1) {
+            return "failed";
+        } else {
             return "Successfully Inserted";
         }
     }
-    public Cursor getAllData(){
+
+
+
+
+    public String addPhone(String name, String phoneno) {
+
         SQLiteDatabase db = this.getWritableDatabase();
+        String query ="create table if not exists "+table_nameone+"("+col_one+" integer primary key autoincrement,"+col_two+" text,"+col_three+" text)";
+        db.execSQL(query);
 
-        Cursor cursor = db.rawQuery(table_query,null);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_two, name);
+        contentValues.put(col_three, phoneno);
 
+
+        long res = db.insert(table_nameone, null, contentValues);
+
+        if (res == -1) {
+            return "failed";
+        } else {
+            return "Successfully Inserted";
+        }
+    }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(table_query, null);
         return cursor;
     }
 
-    public Cursor getAllDataPhone(String num){
+    public boolean getAllDataPhone(String num) {
 
-        String Query = "SELECT * FROM "+table_nameone+" WHERE "+col_three+"="+num;
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(Query,null);
 
-        return cursor;
+        Cursor c=db.rawQuery("SELECT * FROM phone WHERE Phoneno='"+num+"'", null);
+//        ("SELECT * FROM"+table_nameone+"WHERE "+col_three+"='"+num+"', null);
+//        String Query = "Select * from " + table_nameone + " where " + col_three + " = " + num;
+//        Cursor cursor = db.rawQuery(Query, null);
+        if(c.getCount() <= 0){
+            c.close();
+            return false;
+        }
+        c.close();
+        return true;
+//        String Query = "SELECT * FROM " + table_nameone + " WHERE " + col_three + "=" + num;
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery(Query, null);
+//
+//        return cursor;
     }
+
 }

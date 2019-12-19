@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">Renata Application</string>
+    <string name="app_name">Renata Magic Spell</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="profile">
+        <item>Choose District</item>
         <item>Bagerhat</item>
         <item>Bandarban</item>
         <item>Barguna</item>

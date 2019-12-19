@@ -10,11 +10,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -62,10 +64,12 @@ public class LoginFragment extends Fragment {
     ArrayList<CharSequence> arrayListCheck;
     SharedPreferences sharedPrefs;
     SharedPreferences.Editor editor;
+    private EditText thana;
+    private CardView floatingActionButton;
 
-
-
-
+    String name;
+    String phone;
+    String district;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -81,13 +85,13 @@ public class LoginFragment extends Fragment {
         spinner = view.findViewById(R.id.profile_spinner);
         textView = view.findViewById(R.id.district);
 
-
+        thana = view.findViewById(R.id.thana);
 
 
         keyboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "touch", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getActivity(), "touch", Toast.LENGTH_SHORT).show();
                 //  hideSoftKeyboard(getActivity());
                 editText.clearFocus();
                 InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -99,12 +103,58 @@ public class LoginFragment extends Fragment {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         editor = sharedPrefs.edit();
 
+//        button2.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//
+//                String name = name_et.getText().toString();
+//                String phone = editText.getText().toString();
+//                String district = textView.getText().toString();
+//                if (TextUtils.isEmpty(name)) {
+//                    Util.showAlert(getActivity(), "Enter your Name Please");
+//
+//                } else {
+//
+//                    if (TextUtils.isEmpty(phone)) {
+//                        Util.showAlert(getActivity(), "Enter your Phone Number Please");
+//
+//                    } else {
+//
+////                        Cursor cursor = dvManager.getAllDataPhone(phone);
+////                        Log.d("count", String.valueOf(cursor.getCount()));
+//
+//                        if (dvManager.getAllDataPhone(phone)) {
+//                            Util.showAlert(getActivity(),"Already Registered");
+//
+//
+//                        }
+//
+//                        else  {
+//
+//                            String res = dvManager.addPhone(name, phone);
+//                            editor.putString("name", name);
+//                            editor.putString("phone", phone);
+//                            editor.putString("district", district);
+//                            editor.apply();
+//                            SetFrame(new QuizHomeFragment());
+//                            Log.d("log", String.valueOf(dvManager.getAllDataPhone(phone)));
+//
+//                        }
+//
+//
+//                    }
+//                }
+//return true;
+//            }
+//        });
+
+        //button2
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = name_et.getText().toString();
-                String phone = editText.getText().toString();
-                String district = textView.getText().toString();
+                name = name_et.getText().toString();
+                phone = editText.getText().toString();
+                district = textView.getText().toString();
                 if (TextUtils.isEmpty(name)) {
                     Util.showAlert(getActivity(), "Enter your Name Please");
                 } else {
@@ -113,20 +163,21 @@ public class LoginFragment extends Fragment {
                         Util.showAlert(getActivity(), "Enter your Phone Number Please");
                     } else {
 
+//                        Cursor cursor = dvManager.getAllDataPhone(phone);
+//                        Log.d("count", String.valueOf(cursor.getCount()));
 
-                        Cursor cursor = dvManager.getAllDataPhone(phone);
-                        if (cursor.getCount() == 0) {
+                        if (dvManager.getAllDataPhone(phone)) {
+                            Util.showAlert(getActivity(), "Already Registered");
 
-                            String res = dvManager.addPhone(name, phone);
-                            Log.d("res", res);
-                            Toast.makeText(getActivity(), "Successfully Registered", Toast.LENGTH_SHORT).show();
-                            SetFrame(new QuizHomeFragment());
                         } else {
 
-
-                            Toast.makeText(getActivity(), "Already Registered", Toast.LENGTH_SHORT).show();
-                             Util.showAlert(getActivity(),"Already Registered");
-
+                            String res = dvManager.addPhone(name, phone);
+                            editor.putString("name", name);
+                            editor.putString("phone", phone);
+                            editor.putString("district", district);
+                            editor.apply();
+                            SetFrame(new QuizHomeFragment());
+                            Log.d("log", String.valueOf(dvManager.getAllDataPhone(phone)));
                         }
 
 
@@ -134,6 +185,43 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+
+
+        thana.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    Log.d("thana", String.valueOf(thana.getText()));
+                    Toast.makeText(getActivity(), thana.getText(), Toast.LENGTH_SHORT).show();
+
+                    name = name_et.getText().toString();
+                    phone = editText.getText().toString();
+                    district = textView.getText().toString();
+
+                    if (dvManager.getAllDataPhone(phone)) {
+                        Util.showAlert(getActivity(), "Already Registered");
+
+                    } else {
+
+                        String res = dvManager.addPhone(name, phone);
+                        editor.putString("name", name);
+                        editor.putString("phone", phone);
+                        editor.putString("district", district);
+                        editor.apply();
+                        SetFrame(new QuizHomeFragment());
+                        Log.d("log", String.valueOf(dvManager.getAllDataPhone(phone)));
+
+                    }
+
+
+                    return true;
+                }
+                return false;
+            }
+        });
+
 
         ShowSpinner();
         return view;

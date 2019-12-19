@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1277B1"
+    android:orientation="vertical"
+    tools:context=".SimulateFragment"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="12dp"
+        android:src="@drawable/logo"
+        android:text="Renata Magic Spell"
+        android:textAlignment="center"
+        android:textColor="#1277B1"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Renata Magic Spell"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <Button
+        android:textSize="22sp"
+        android:fontFamily="sans-serif"
+        android:id="@+id/regnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:text="Signup  with   Registration  Number"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="70dp"/>
+
+    <Button
+        android:textSize="22sp"
+        android:id="@+id/signupnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:text="Signup  with  Data"
+        android:layout_margin="25dp" />
+</LinearLayout>

@@ -1,66 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Draw.DrawFragment">
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/top_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="12dp"
         app:cardCornerRadius="6dp"
-        android:id="@+id/banner_section"
+        app:cardElevation="12dp"
+
 
         >
+
         <ImageView
-            android:visibility="visible"
+            android:id="@+id/banner_top"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/orcef"
-            android:id="@+id/iv_banner_adstop"
-            />
+            android:src="@drawable/azisan"
+            android:visibility="visible" />
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+
+
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_below="@id/top_card"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="16dp"
+
+        android:src="@drawable/cop" />
 
     <ImageView
-        android:layout_below="@id/banner_section"
+        android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:src="@drawable/magicflexi"
-        android:layout_centerInParent="true"
-        android:id="@+id/imageView"
-        />
+        android:layout_height="450dp"
+        android:layout_below="@id/top_card"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/cop"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="120dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_card"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="12dp"
+        android:background="#000"
+        android:hint="Submit"
+        android:inputType="text"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textAlignment="center"
+        android:textColorHint="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <Button
+        android:layout_marginTop="45dp"
         android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="405dp"
-        android:layout_marginEnd="405dp"
-        android:text="Play"
-        android:textColor="@android:color/white"
-        android:textAlignment="center"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_marginTop="6dp"
-        android:background="#000000" />
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:background="#1277B1"
+        android:text="Play"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+
+        android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="12dp"
-        app:cardCornerRadius="6dp"
         android:layout_alignParentBottom="true"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="12dp"
 
         >
+
         <ImageView
-            android:visibility="visible"
+            android:id="@+id/banner_bottom"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:src="@drawable/orcef"
-
-            />
+            android:src="@drawable/plus"
+            android:visibility="visible" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

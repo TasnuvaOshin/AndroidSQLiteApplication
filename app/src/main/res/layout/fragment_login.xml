@@ -1,10 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+    android:background="#1277B1"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/keyboard"
@@ -14,137 +18,200 @@
         android:visibility="gone"
         app:backgroundTint="#ffffff" />
 
-    <androidx.cardview.widget.CardView
+
+    <LinearLayout
+         android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:id="@+id/auth_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="105dp"
-        app:cardCornerRadius="22dp"
+           android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-        >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="16dp"
+            android:padding="6dp"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/logo"
+            android:visibility="gone"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:padding="6dp"
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/a"
+            android:hint="Enter Your Name"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:textSize="16sp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:padding="6dp"
+            android:text="Phone Number"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phoneno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/a"
+            android:hint="Ex : 01771112731"
+            android:inputType="number"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:padding="6dp"
+            android:text="Thana"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/thana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+
+            android:background="@drawable/a"
+            android:hint="Thana"
+            android:inputType="text"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:padding="6dp"
+            android:text="District"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:visibility="visible"
-            android:id="@+id/auth_layout"
+            android:id="@+id/profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#D0F1F1F1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/a"
+            android:padding="12dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/district"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:text="Sign Up"
-                android:textAlignment="center"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif"
+                android:textSize="16sp"
+                android:visibility="gone" />
 
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-                />
-
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/phoneno"
-                android:maxLength="11"
-                android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/a"
-                android:hint="Ex : 01771112731"
-                android:padding="12dp"
-                android:inputType="number"
-                />
-
-            <EditText
-                android:maxLength="30"
-                android:id="@+id/name"
-                android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/a"
-                android:hint="Enter Your Name"
-                android:padding="12dp"
-
-                />
-
-            <RelativeLayout
-                android:id="@+id/profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="12dp"
-                android:background="@drawable/a"
-                android:padding="12dp">
-
-                <TextView
-                    android:id="@+id/district"
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/profile_spinner"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
+                    android:backgroundTint="#FFFFFF" />
+            </LinearLayout>
 
-                    android:fontFamily="sans-serif"
-                    android:padding="3dp"
-                    android:text="Select District"
-                    android:textSize="16sp" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:background="#FF5252"
-                    android:padding="3dp"
-
-                    >
-
-                    <Spinner
-                        android:id="@+id/profile_spinner"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#FFFFFF" />
-                </RelativeLayout>
-
-
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="45dp"
-                android:background="#B9000000"
-                android:text="Sign Up"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
 
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+    </LinearLayout>
 
 
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="12dp"
+        android:background="#B9000000"
+        android:clickable="true"
+        android:filterTouchesWhenObscured="true"
+        android:focusable="true"
+        android:text="Sign  Up"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+
+</LinearLayout>
 
 
